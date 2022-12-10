@@ -1,6 +1,6 @@
 # https://alessarver.github.io/zilfond-vue-test/
 
-###### https://jsonplaceholder.typicode.com/users?_name=%22Graham%22
+###### https://jsonplaceholder.typicode.com/users
 
 ## Project setup
 ```
@@ -16,6 +16,3 @@ yarn serve
 ```
 yarn build
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
