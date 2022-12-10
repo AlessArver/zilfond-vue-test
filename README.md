@@ -1,4 +1,4 @@
-# zilfond-vue-test
+# https://alessarver.github.io/zilfond-vue-test/
 
 ## Project setup
 ```
