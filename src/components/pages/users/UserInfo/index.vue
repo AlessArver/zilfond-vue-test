@@ -2,7 +2,11 @@
   <div :class="$style.userInfo">
     <div>
       <div :class="$style.userInfo__avatarWrapper">
-        <img :src="Avatar" alt="" :class="$style.userInfo__avatar" />
+        <img
+          src="./assets/avatar.png"
+          alt=""
+          :class="$style.userInfo__avatar"
+        />
       </div>
     </div>
     <div :class="$style.userInfo__content">
@@ -32,8 +36,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import Avatar from "./assets/avatar.png";
-
 export default defineComponent({
   props: {
     name: {
@@ -50,9 +52,7 @@ export default defineComponent({
     },
   },
   setup() {
-    return {
-      Avatar,
-    };
+    return {};
   },
 });
 </script>

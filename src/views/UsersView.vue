@@ -48,7 +48,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onMounted, reactive } from "vue";
+import { computed, defineComponent, reactive } from "vue";
 import { useStore } from "vuex";
 
 import MainLayout from "@/layouts/MainLayout/index.vue";
@@ -95,7 +95,6 @@ export default defineComponent({
     };
 
     const onKeyUpInput = (e: KeyboardEvent) => {
-      console.log("onKeyDownInput", e);
       if (e.key === "Enter") {
         onGetUsers();
       }

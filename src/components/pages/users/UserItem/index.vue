@@ -9,7 +9,11 @@
       },
     ]"
   >
-    <img :src="Avatar" :alt="username" :class="$style.userItem__avatar" />
+    <img
+      src="./assets/avatar.png"
+      :alt="username"
+      :class="$style.userItem__avatar"
+    />
     <div :class="$style.userItem__content">
       <div :class="$style.userItem__username">
         {{ username.length > 10 ? `${username.slice(0, 15)}...` : username }}
@@ -23,8 +27,6 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-
-import Avatar from "./assets/avatar.png";
 
 export default defineComponent({
   props: {
@@ -49,11 +51,8 @@ export default defineComponent({
       required: false,
     },
   },
-  setup({ className }) {
-    return {
-      Avatar,
-      className,
-    };
+  setup() {
+    return {};
   },
 });
 </script>

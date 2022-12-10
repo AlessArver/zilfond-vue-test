@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.header">
-    <div :class="$style.header__logo">Жилфонд</div>
+    <RouterLink to="/" :class="$style.header__logo">Жилфонд</RouterLink>
     <div v-if="!!title" :class="$style.header__title">{{ title }}</div>
   </div>
 </template>
