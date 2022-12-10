@@ -24,8 +24,19 @@ export interface IUser {
   };
 }
 export const usersApi = {
-  async users({ username }: { username: string }) {
-    const res = await instance.get<IUser[]>(`/users?username=${username}`);
+  async users({
+    id,
+    username,
+  }: {
+    id: string | null;
+    username: string | null;
+  }) {
+    const userenameParams = `?username=${username}`;
+    const idParams = `?id=${id}`;
+
+    const res = await instance.get<IUser[]>(
+      `/users${username ? userenameParams : idParams}`
+    );
     return res.data;
   },
   async user(id: number) {

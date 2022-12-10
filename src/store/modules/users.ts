@@ -19,9 +19,21 @@ const mutations = {
 };
 
 const actions = {
-  async addUser({ commit }: any, { username }: { username: string }) {
+  async addUser({ commit }: any, username: string) {
     commit("SET_LOADING", true);
-    const newUser = await usersApi.users({ username });
+
+    let isId = false;
+    let apiProps = {
+      id: null as null | string,
+      username: null as null | string,
+    };
+    if (parseInt(username)) {
+      apiProps.id = username;
+    } else {
+      apiProps.username = username;
+    }
+
+    const newUser = await usersApi.users({ ...apiProps });
     commit("ADD_USER", newUser[0]);
     commit("SET_LOADING", false);
   },

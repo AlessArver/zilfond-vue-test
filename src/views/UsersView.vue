@@ -5,7 +5,7 @@
         <div :class="$style.usersView__asideTitle">Поиск сотрудников</div>
         <Input
           :value="state.inputValue"
-          placeholder="Введите Id или имя"
+          placeholder="Введите id или username"
           :on-change="onChangeInput"
           :on-key-up="onKeyUpInput"
           :className="$style.usersView__asideInput"
@@ -84,9 +84,7 @@ export default defineComponent({
       }
 
       namesOfUsers.map((n) => {
-        store.dispatch("users/addUser", {
-          username: n,
-        });
+        store.dispatch("users/addUser", n);
       });
     };
 
