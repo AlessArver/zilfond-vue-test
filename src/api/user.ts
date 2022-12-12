@@ -40,7 +40,7 @@ export const usersApi = {
     return res.data;
   },
   async user(id: number) {
-    const res = await instance.get<IUser[]>(`/users/${id}`);
+    const res = await instance.get<IUser[]>(`/users/333${id}`);
     return res.data;
   },
 };

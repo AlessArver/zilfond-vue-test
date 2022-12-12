@@ -14,6 +14,7 @@
       </div>
       <div :class="[$style.usersView__users, $style.usersView__asideContainer]">
         <UserItem
+          v-if="users.length"
           v-for="u in users"
           :key="u.id"
           :onChoseUser="onChoseUser(u.id)"
@@ -22,10 +23,14 @@
           :className="[$style.usersView__user]"
           :isActive="u.id === state.chosenUser"
         />
-        <div v-if="!users.length" :class="$style.usersView__asideNotFound">
-          {{
-            !loading && loading !== null ? "Loading..." : "ничего не найдено"
-          }}
+        <div v-else>
+          <Loader v-if="loading !== null && loading" />
+          <span
+            v-else-if="loading === null || !loading"
+            :class="$style.usersView__asideNotFound"
+          >
+            ничего не найдено
+          </span>
         </div>
       </div>
     </template>
@@ -37,11 +42,10 @@
         :phone="state.user.phone"
       />
       <div v-else :class="$style.usersView__noUser">
-        {{
-          !state.userLoading && state.userLoading !== null
-            ? "Loading..."
-            : "Выберите сотрудника, чтобы посмотреть его профиль"
-        }}
+        <Loader v-if="state.userLoading !== null && state.userLoading" />
+        <span v-else-if="state.userLoading === null || !state.userLoading">
+          Выберите сотрудника, чтобы посмотреть его профиль
+        </span>
       </div>
     </template>
   </MainLayout>
@@ -53,6 +57,7 @@ import { useStore } from "vuex";
 
 import MainLayout from "@/layouts/MainLayout/index.vue";
 import Input from "@/components/Input/index.vue";
+import Loader from "@/components/Loader/index.vue";
 import UserItem from "@/components/pages/users/UserItem/index.vue";
 import UserInfo from "@/components/pages/users/UserInfo/index.vue";
 import { IUser } from "@/api/user";
@@ -64,6 +69,7 @@ export default defineComponent({
     Input,
     UserItem,
     UserInfo,
+    Loader,
   },
   setup() {
     const store = useStore();
